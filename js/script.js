@@ -31,7 +31,7 @@ function CrearTabla(datos) {//"Datos" respresenta al JSON que viene de la api
             <td>${persona.Correo}</td>
         <td> 
             <button>Editar</button>
-            <button>Eliminar</button>
+            <button onClick="EliminarRegistro(${persona.id})"> Eliminar</button>
         </td>
         </tr>
         `
@@ -69,7 +69,7 @@ document.getElementById("frmAgregarIntegrante").addEventListener("submit", async
     const Correo = document.getElementById("email").value.trim();
 
 
-    if(!Nombre || !Apellido || !Correo || !Edad){
+    if (!Nombre || !Apellido || !Correo || !Edad) {
         alert("Complete todos los campos");
         return;
 
@@ -79,13 +79,13 @@ document.getElementById("frmAgregarIntegrante").addEventListener("submit", async
 
     const respuesta = await fetch(API_URL, {
         method: "POST",
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({Nombre, Apellido, Edad, Correo})
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ Nombre, Apellido, Edad, Correo })
 
     });
 
 
-    if(respuesta.ok){
+    if (respuesta.ok) {
         alert("El Registro fue agregado correctamente");
 
 
@@ -97,10 +97,19 @@ document.getElementById("frmAgregarIntegrante").addEventListener("submit", async
         ObtenerPersonas();
     }
 
-    else{
+    else {
         alert("Haguio un error al agregar");
     }
 
 
 }); //Fin del formularios
 
+
+//Para eliminar registos
+
+async function EliminarRegistro(id) {
+    if (confirm("¿Seguro que quieres borrar este registro?")) {
+        await fetch(`${API_URL}/${id}`, {method: 'DELETE'});
+        ObtenerPersonas();
+    }
+}

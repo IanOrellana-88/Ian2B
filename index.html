@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistekma de gestion de equipo EXPO</title>
+    <title>Sistema de gestion de equipo EXPO</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 </head>
@@ -28,30 +28,32 @@
     <main class="container">
         <h2>Integarntes Del Equipo</h2>
 
+        <div class="tabla-scroll">
+            <table id="tabla">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Correo Electronico</th><!--Para botones adicionales-->
+                    </tr>
+                </thead>
 
-        <table id="tabla">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Edad</th>
-                    <th>Correo Electronico</th><!--Para botones adicionales-->
-                </tr>
-            </thead>
+                <tbody>
+                    <!--Aqui van los reguistros de la base que vienen a traves de la API-->
+                </tbody>
+            </table>
+        </div>
 
-            <tbody>
-                <!--Aqui van los reguistros de la base que vienen a traves de la API-->
-            </tbody>
-        </table>
     </main>
-    <dialog id="modalAgregar" >
+    <dialog id="modalAgregar">
         <article>
             <header>
-              <a href="#" class="close" id="btnCerrarModal"></a>
-              <h3>Agregar Integrantes</h3>
+                <a href="#" class="close" id="btnCerrarModal"></a>
+                <h3>Agregar Integrantes</h3>
             </header>
-            <form id="frmAgregarIntegrante">                
+            <form id="frmAgregarIntegrante">
                 <input type="text" id="nombre" placeholder="Nombre" required>
                 <input type="text" id="apellido" placeholder="Apellido" required>
                 <input type="number" placeholder="Edad" id="edad" required>
