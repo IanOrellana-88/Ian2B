@@ -40,3 +40,6 @@
 .tabla-scroll {
     overflow-x: auto;
 }
+
+
+body {background-color: lightgrey;}
